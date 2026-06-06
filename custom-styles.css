@@ -34,67 +34,49 @@ header div,
   color: #ffffff !important;
 }
 
-/* Add M.N. Islam text beside logo in header/nav */
-header img,
-nav img,
-[class*="header"] img,
-[class*="nav"] img,
-[class*="logo"] img,
-[class*="brand"] img {
-  margin-right: 8px !important;
-}
-
-header img + span,
-header img + div,
-nav img + span,
-nav img + div,
-[class*="header"] img + span,
-[class*="header"] img + div,
-[class*="nav"] img + span,
-[class*="nav"] img + div,
-[class*="logo"] img + span,
-[class*="logo"] img + div,
-[class*="brand"] img + span,
-[class*="brand"] img + div {
-  content: "M.N. Islam" !important;
-  font-weight: bold !important;
-  color: #ffffff !important;
-  display: inline-block !important;
-}
-
 /* Footer styling in day mode */
 footer,
 [class*="footer"] {
   background-color: #000000 !important;
 }
 
-/* Make footer text white and bold */
-footer,
-footer *,
-[class*="footer"],
-[class*="footer"] * {
-  color: #ffffff !important;
-  font-weight: bold !important;
-}
-
-/* Hide all footer content except logo and M.N. Islam */
-footer > * {
+/* Hide all footer text content - keep only visible logo section */
+footer p,
+footer span:not([class*="logo"]),
+footer div:not([class*="logo"]),
+footer h1,
+footer h2,
+footer h3,
+footer h4,
+footer h5,
+footer h6,
+[class*="footer"] p,
+[class*="footer"] span:not([class*="logo"]),
+[class*="footer"] div:not([class*="logo"]),
+[class*="footer"] h1,
+[class*="footer"] h2,
+[class*="footer"] h3,
+[class*="footer"] h4,
+[class*="footer"] h5,
+[class*="footer"] h6 {
   display: none !important;
 }
 
-/* Show only logo and name section in footer */
+/* Show and style footer logo area */
 footer img,
 [class*="footer"] img {
   display: inline-block !important;
   margin-right: 8px !important;
 }
 
-/* Display M.N. Islam text in footer */
-footer img + *,
-[class*="footer"] img + * {
-  display: inline-block !important;
+/* Add M.N. Islam text after footer logo using CSS */
+footer img::after,
+[class*="footer"] img::after {
+  content: "M.N. Islam" !important;
   font-weight: bold !important;
   color: #ffffff !important;
+  margin-left: 8px !important;
+  display: inline-block !important;
 }
 
 /* Ensure these only apply in light mode (day mode) */
@@ -131,53 +113,43 @@ footer img + *,
   [class*="menu"] a,
   [class*="menu"] button,
   [class*="menu"] span,
-  [class*="menu"] div,
-  footer a,
-  footer button,
-  footer span,
-  footer div,
+  [class*="menu"] div {
+    font-weight: bold !important;
+    color: #ffffff !important;
+  }
+
   footer p,
+  footer span:not([class*="logo"]),
+  footer div:not([class*="logo"]),
   footer h1,
   footer h2,
   footer h3,
   footer h4,
   footer h5,
   footer h6,
-  [class*="footer"] a,
-  [class*="footer"] button,
-  [class*="footer"] span,
-  [class*="footer"] div,
   [class*="footer"] p,
+  [class*="footer"] span:not([class*="logo"]),
+  [class*="footer"] div:not([class*="logo"]),
   [class*="footer"] h1,
   [class*="footer"] h2,
   [class*="footer"] h3,
   [class*="footer"] h4,
   [class*="footer"] h5,
   [class*="footer"] h6 {
-    font-weight: bold !important;
-    color: #ffffff !important;
+    display: none !important;
   }
 
-  header img + span,
-  header img + div,
-  nav img + span,
-  nav img + div,
-  [class*="header"] img + span,
-  [class*="header"] img + div,
-  [class*="nav"] img + span,
-  [class*="nav"] img + div,
-  footer img + p,
-  footer img + span,
-  footer img + div,
-  [class*="footer"] img + p,
-  [class*="footer"] img + span,
-  [class*="footer"] img + div {
+  footer img::after,
+  [class*="footer"] img::after {
+    content: "M.N. Islam" !important;
     font-weight: bold !important;
     color: #ffffff !important;
+    margin-left: 8px !important;
+    display: inline-block !important;
   }
 }
 
-/* Ensure all text in nav/header/menu/footer is white */
+/* Ensure all visible text in nav/header/menu/footer is white */
 nav,
 header,
 footer,
@@ -188,14 +160,16 @@ footer,
   color: #ffffff !important;
 }
 
-/* Make sure all child elements inherit white text color */
+/* Make sure all visible child elements inherit white text color */
 nav *,
 header *,
-footer *,
+footer img,
+footer img::after,
 [class*="nav"] *,
 [class*="header"] *,
 [class*="menu"] *,
-[class*="footer"] * {
+[class*="footer"] img,
+[class*="footer"] img::after {
   color: #ffffff !important;
   font-weight: bold !important;
 }
