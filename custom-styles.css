@@ -68,33 +68,31 @@ footer,
   background-color: #000000 !important;
 }
 
-/* Make footer text white */
+/* Make footer text white and bold */
 footer,
 footer *,
 [class*="footer"],
 [class*="footer"] * {
   color: #ffffff !important;
+  font-weight: bold !important;
 }
 
-/* Hide Sirajganj, Bangladesh text in footer */
-footer p:has(+ *:contains("Sirajganj")),
-footer span:contains("Sirajganj"),
-footer div:contains("Sirajganj"),
-footer p:contains("Bangladesh"),
-footer span:contains("Bangladesh"),
-footer div:contains("Bangladesh") {
+/* Hide all footer content except logo and M.N. Islam */
+footer > * {
   display: none !important;
 }
 
-/* Style M.N. Islam in footer - ensure it's white and bold */
-footer h3,
-footer h2,
-footer strong,
-footer b,
-[class*="footer"] h3,
-[class*="footer"] h2,
-[class*="footer"] strong,
-[class*="footer"] b {
+/* Show only logo and name section in footer */
+footer img,
+[class*="footer"] img {
+  display: inline-block !important;
+  margin-right: 8px !important;
+}
+
+/* Display M.N. Islam text in footer */
+footer img + *,
+[class*="footer"] img + * {
+  display: inline-block !important;
   font-weight: bold !important;
   color: #ffffff !important;
 }
@@ -199,4 +197,5 @@ footer *,
 [class*="menu"] *,
 [class*="footer"] * {
   color: #ffffff !important;
+  font-weight: bold !important;
 }
