@@ -35,6 +35,17 @@ footer,
   background-color: #000000 !important;
 }
 
+/* Add M.N. Islam text beside logo in footer using CSS pseudo-element */
+footer [class*="logo"]::after,
+footer img[src*="logo"]::after,
+footer [class*="brand"]::after {
+  content: "M.N. Islam" !important;
+  margin-left: 10px !important;
+  font-weight: bold !important;
+  color: #ffffff !important;
+  display: inline !important;
+}
+
 /* Ensure these only apply in light mode (day mode) */
 @media (prefers-color-scheme: light) {
   nav,
@@ -71,6 +82,15 @@ footer,
   [class*="footer"] a,
   [class*="footer"] button,
   [class*="footer"] span {
+    font-weight: bold !important;
+    color: #ffffff !important;
+  }
+
+  footer [class*="logo"]::after,
+  footer img[src*="logo"]::after,
+  footer [class*="brand"]::after {
+    content: "M.N. Islam" !important;
+    margin-left: 10px !important;
     font-weight: bold !important;
     color: #ffffff !important;
   }
