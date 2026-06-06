@@ -9,18 +9,24 @@ header,
   background-color: #000000 !important;
 }
 
-/* Menu text - make it bold */
+/* Menu text - make it bold and visible (white text) */
 nav a,
 nav button,
+nav span,
 header a,
 header button,
+header span,
 [class*="nav"] a,
 [class*="nav"] button,
+[class*="nav"] span,
 [class*="header"] a,
 [class*="header"] button,
+[class*="header"] span,
 [class*="menu"] a,
-[class*="menu"] button {
+[class*="menu"] button,
+[class*="menu"] span {
   font-weight: bold !important;
+  color: #ffffff !important;
 }
 
 /* Footer styling in day mode */
@@ -46,24 +52,31 @@ footer,
 
   nav a,
   nav button,
+  nav span,
   header a,
   header button,
+  header span,
   [class*="nav"] a,
   [class*="nav"] button,
+  [class*="nav"] span,
   [class*="header"] a,
   [class*="header"] button,
+  [class*="header"] span,
   [class*="menu"] a,
   [class*="menu"] button,
+  [class*="menu"] span,
   footer a,
   footer button,
+  footer span,
   [class*="footer"] a,
-  [class*="footer"] button {
+  [class*="footer"] button,
+  [class*="footer"] span {
     font-weight: bold !important;
     color: #ffffff !important;
   }
 }
 
-/* Additional specificity for text color in menu/footer */
+/* Ensure all text in nav/header/menu/footer is white */
 nav,
 header,
 footer,
@@ -71,5 +84,16 @@ footer,
 [class*="header"],
 [class*="menu"],
 [class*="footer"] {
+  color: #ffffff !important;
+}
+
+/* Make sure all child elements inherit white text color */
+nav *,
+header *,
+footer *,
+[class*="nav"] *,
+[class*="header"] *,
+[class*="menu"] *,
+[class*="footer"] * {
   color: #ffffff !important;
 }
