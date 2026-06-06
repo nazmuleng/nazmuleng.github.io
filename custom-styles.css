@@ -1,175 +1,94 @@
-/* Custom styles for menu and footer */
-
-/* Navigation/Menu styling in day mode */
+/* ── Navigation / Header background ─────────────────────────── */
 nav,
 header,
 [class*="nav"],
-[class*="header"],
-[class*="menu"] {
+[class*="header"] {
   background-color: #000000 !important;
 }
 
-/* Menu text - make it bold and visible (white text) */
+/* ── Header / nav text: white on black ───────────────────────── */
 nav a,
 nav button,
 nav span,
-nav div,
 header a,
 header button,
-header span,
-header div,
-[class*="nav"] a,
-[class*="nav"] button,
-[class*="nav"] span,
-[class*="nav"] div,
-[class*="header"] a,
-[class*="header"] button,
-[class*="header"] span,
-[class*="header"] div,
-[class*="menu"] a,
-[class*="menu"] button,
-[class*="menu"] span,
-[class*="menu"] div {
-  font-weight: bold !important;
+header span {
   color: #ffffff !important;
 }
 
-/* Footer styling in day mode */
-footer,
-[class*="footer"] {
-  background-color: #000000 !important;
+/* ── Show full desktop nav from 640 px (override xl: breakpoint) */
+@media (min-width: 640px) {
+  /* Force the desktop nav visible */
+  header nav {
+    display: flex !important;
+  }
+  /* Hide the hamburger button wrapper (3 levels inside header) */
+  header > div > div > div.xl\:hidden {
+    display: none !important;
+  }
 }
 
-/* Hide all footer text content - keep only visible logo section */
-footer p,
-footer span:not([class*="logo"]),
-footer div:not([class*="logo"]),
-footer h1,
-footer h2,
-footer h3,
-footer h4,
-footer h5,
-footer h6,
-[class*="footer"] p,
-[class*="footer"] span:not([class*="logo"]),
-[class*="footer"] div:not([class*="logo"]),
-[class*="footer"] h1,
-[class*="footer"] h2,
-[class*="footer"] h3,
-[class*="footer"] h4,
-[class*="footer"] h5,
-[class*="footer"] h6 {
+/* ── Mobile hamburger drawer (right-side panel, below 640 px) ── */
+header > div.xl\:hidden {
+  position: fixed !important;
+  top: 56px !important;
+  right: 0 !important;
+  left: auto !important;
+  bottom: 0 !important;
+  width: max-content !important;
+  min-width: 180px !important;
+  background: #111111 !important;
+  border-left: 1px solid #333 !important;
+  border-bottom: none !important;
+  border-top: none !important;
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.4) !important;
+  z-index: 49 !important;
+  overflow-y: auto !important;
+  animation: slideInFromRight 0.2s ease-out !important;
+}
+
+@keyframes slideInFromRight {
+  from { transform: translateX(100%); }
+  to   { transform: translateX(0); }
+}
+
+header > div.xl\:hidden > div {
+  background: transparent !important;
+  display: flex !important;
+  flex-direction: column !important;
+  padding: 12px 20px !important;
+  gap: 4px !important;
+}
+
+header > div.xl\:hidden button {
+  color: #ffffff !important;
+  font-weight: 500 !important;
+  text-align: left !important;
+  padding: 10px 0 !important;
+  border-bottom: 1px solid #2a2a2a !important;
+  white-space: nowrap !important;
+  font-size: 14px !important;
+  background: transparent !important;
+}
+
+header > div.xl\:hidden button:last-child {
+  border-bottom: none !important;
+}
+
+/* ── Hide gear / back-to-top button on mobile only ───────────── */
+@media (max-width: 767px) {
+  [data-testid="button-back-to-top"] {
+    display: none !important;
+  }
+}
+
+/* ── Footer: hide email and phone links ──────────────────────── */
+footer a[href^="mailto:"],
+footer a[href^="tel:"] {
   display: none !important;
 }
 
-/* Show and style footer logo area */
-footer img,
-[class*="footer"] img {
-  display: inline-block !important;
-  margin-right: 8px !important;
-}
-
-/* Add M.N. Islam text after footer logo using CSS */
-footer img::after,
-[class*="footer"] img::after {
-  content: "M.N. Islam" !important;
-  font-weight: bold !important;
-  color: #ffffff !important;
-  margin-left: 8px !important;
-  display: inline-block !important;
-}
-
-/* Ensure these only apply in light mode (day mode) */
-@media (prefers-color-scheme: light) {
-  nav,
-  header,
-  [class*="nav"],
-  [class*="header"],
-  [class*="menu"] {
-    background-color: #000000 !important;
-  }
-
-  footer,
-  [class*="footer"] {
-    background-color: #000000 !important;
-  }
-
-  nav a,
-  nav button,
-  nav span,
-  nav div,
-  header a,
-  header button,
-  header span,
-  header div,
-  [class*="nav"] a,
-  [class*="nav"] button,
-  [class*="nav"] span,
-  [class*="nav"] div,
-  [class*="header"] a,
-  [class*="header"] button,
-  [class*="header"] span,
-  [class*="header"] div,
-  [class*="menu"] a,
-  [class*="menu"] button,
-  [class*="menu"] span,
-  [class*="menu"] div {
-    font-weight: bold !important;
-    color: #ffffff !important;
-  }
-
-  footer p,
-  footer span:not([class*="logo"]),
-  footer div:not([class*="logo"]),
-  footer h1,
-  footer h2,
-  footer h3,
-  footer h4,
-  footer h5,
-  footer h6,
-  [class*="footer"] p,
-  [class*="footer"] span:not([class*="logo"]),
-  [class*="footer"] div:not([class*="logo"]),
-  [class*="footer"] h1,
-  [class*="footer"] h2,
-  [class*="footer"] h3,
-  [class*="footer"] h4,
-  [class*="footer"] h5,
-  [class*="footer"] h6 {
-    display: none !important;
-  }
-
-  footer img::after,
-  [class*="footer"] img::after {
-    content: "M.N. Islam" !important;
-    font-weight: bold !important;
-    color: #ffffff !important;
-    margin-left: 8px !important;
-    display: inline-block !important;
-  }
-}
-
-/* Ensure all visible text in nav/header/menu/footer is white */
-nav,
-header,
-footer,
-[class*="nav"],
-[class*="header"],
-[class*="menu"],
-[class*="footer"] {
-  color: #ffffff !important;
-}
-
-/* Make sure all visible child elements inherit white text color */
-nav *,
-header *,
-footer img,
-footer img::after,
-[class*="nav"] *,
-[class*="header"] *,
-[class*="menu"] *,
-[class*="footer"] img,
-[class*="footer"] img::after {
-  color: #ffffff !important;
-  font-weight: bold !important;
+/* ── Footer: location link — no underline ────────────────────── */
+footer a[href*="maps.app.goo"] {
+  text-decoration: none !important;
 }

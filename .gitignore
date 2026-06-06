@@ -1,0 +1,7 @@
+# Replit-specific files
+.replit
+.local/
+.agents/
+.cache/
+server.js
+replit.nix
