@@ -13,20 +13,53 @@ header,
 nav a,
 nav button,
 nav span,
+nav div,
 header a,
 header button,
 header span,
+header div,
 [class*="nav"] a,
 [class*="nav"] button,
 [class*="nav"] span,
+[class*="nav"] div,
 [class*="header"] a,
 [class*="header"] button,
 [class*="header"] span,
+[class*="header"] div,
 [class*="menu"] a,
 [class*="menu"] button,
-[class*="menu"] span {
+[class*="menu"] span,
+[class*="menu"] div {
   font-weight: bold !important;
   color: #ffffff !important;
+}
+
+/* Add M.N. Islam text beside logo in header/nav */
+header img,
+nav img,
+[class*="header"] img,
+[class*="nav"] img,
+[class*="logo"] img,
+[class*="brand"] img {
+  margin-right: 8px !important;
+}
+
+header img + span,
+header img + div,
+nav img + span,
+nav img + div,
+[class*="header"] img + span,
+[class*="header"] img + div,
+[class*="nav"] img + span,
+[class*="nav"] img + div,
+[class*="logo"] img + span,
+[class*="logo"] img + div,
+[class*="brand"] img + span,
+[class*="brand"] img + div {
+  content: "M.N. Islam" !important;
+  font-weight: bold !important;
+  color: #ffffff !important;
+  display: inline-block !important;
 }
 
 /* Footer styling in day mode */
@@ -35,15 +68,22 @@ footer,
   background-color: #000000 !important;
 }
 
-/* Add M.N. Islam text beside logo in footer using CSS pseudo-element */
-footer [class*="logo"]::after,
-footer img[src*="logo"]::after,
-footer [class*="brand"]::after {
-  content: "M.N. Islam" !important;
-  margin-left: 10px !important;
+/* Add M.N. Islam text beside logo in footer */
+footer img,
+[class*="footer"] img {
+  margin-right: 8px !important;
+}
+
+footer img + p,
+footer img + span,
+footer img + div,
+[class*="footer"] img + p,
+[class*="footer"] img + span,
+[class*="footer"] img + div {
   font-weight: bold !important;
   color: #ffffff !important;
-  display: inline !important;
+  display: inline-block !important;
+  margin: 0 !important;
 }
 
 /* Ensure these only apply in light mode (day mode) */
@@ -64,33 +104,49 @@ footer [class*="brand"]::after {
   nav a,
   nav button,
   nav span,
+  nav div,
   header a,
   header button,
   header span,
+  header div,
   [class*="nav"] a,
   [class*="nav"] button,
   [class*="nav"] span,
+  [class*="nav"] div,
   [class*="header"] a,
   [class*="header"] button,
   [class*="header"] span,
+  [class*="header"] div,
   [class*="menu"] a,
   [class*="menu"] button,
   [class*="menu"] span,
+  [class*="menu"] div,
   footer a,
   footer button,
   footer span,
+  footer div,
   [class*="footer"] a,
   [class*="footer"] button,
-  [class*="footer"] span {
+  [class*="footer"] span,
+  [class*="footer"] div {
     font-weight: bold !important;
     color: #ffffff !important;
   }
 
-  footer [class*="logo"]::after,
-  footer img[src*="logo"]::after,
-  footer [class*="brand"]::after {
-    content: "M.N. Islam" !important;
-    margin-left: 10px !important;
+  header img + span,
+  header img + div,
+  nav img + span,
+  nav img + div,
+  [class*="header"] img + span,
+  [class*="header"] img + div,
+  [class*="nav"] img + span,
+  [class*="nav"] img + div,
+  footer img + p,
+  footer img + span,
+  footer img + div,
+  [class*="footer"] img + p,
+  [class*="footer"] img + span,
+  [class*="footer"] img + div {
     font-weight: bold !important;
     color: #ffffff !important;
   }
