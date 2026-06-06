@@ -68,22 +68,35 @@ footer,
   background-color: #000000 !important;
 }
 
-/* Add M.N. Islam text beside logo in footer */
-footer img,
-[class*="footer"] img {
-  margin-right: 8px !important;
+/* Make footer text white */
+footer,
+footer *,
+[class*="footer"],
+[class*="footer"] * {
+  color: #ffffff !important;
 }
 
-footer img + p,
-footer img + span,
-footer img + div,
-[class*="footer"] img + p,
-[class*="footer"] img + span,
-[class*="footer"] img + div {
+/* Hide Sirajganj, Bangladesh text in footer */
+footer p:has(+ *:contains("Sirajganj")),
+footer span:contains("Sirajganj"),
+footer div:contains("Sirajganj"),
+footer p:contains("Bangladesh"),
+footer span:contains("Bangladesh"),
+footer div:contains("Bangladesh") {
+  display: none !important;
+}
+
+/* Style M.N. Islam in footer - ensure it's white and bold */
+footer h3,
+footer h2,
+footer strong,
+footer b,
+[class*="footer"] h3,
+[class*="footer"] h2,
+[class*="footer"] strong,
+[class*="footer"] b {
   font-weight: bold !important;
   color: #ffffff !important;
-  display: inline-block !important;
-  margin: 0 !important;
 }
 
 /* Ensure these only apply in light mode (day mode) */
@@ -125,10 +138,24 @@ footer img + div,
   footer button,
   footer span,
   footer div,
+  footer p,
+  footer h1,
+  footer h2,
+  footer h3,
+  footer h4,
+  footer h5,
+  footer h6,
   [class*="footer"] a,
   [class*="footer"] button,
   [class*="footer"] span,
-  [class*="footer"] div {
+  [class*="footer"] div,
+  [class*="footer"] p,
+  [class*="footer"] h1,
+  [class*="footer"] h2,
+  [class*="footer"] h3,
+  [class*="footer"] h4,
+  [class*="footer"] h5,
+  [class*="footer"] h6 {
     font-weight: bold !important;
     color: #ffffff !important;
   }
