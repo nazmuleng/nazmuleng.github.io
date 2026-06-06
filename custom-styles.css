@@ -1,0 +1,75 @@
+/* Custom styles for menu and footer */
+
+/* Navigation/Menu styling in day mode */
+nav,
+header,
+[class*="nav"],
+[class*="header"],
+[class*="menu"] {
+  background-color: #000000 !important;
+}
+
+/* Menu text - make it bold */
+nav a,
+nav button,
+header a,
+header button,
+[class*="nav"] a,
+[class*="nav"] button,
+[class*="header"] a,
+[class*="header"] button,
+[class*="menu"] a,
+[class*="menu"] button {
+  font-weight: bold !important;
+}
+
+/* Footer styling in day mode */
+footer,
+[class*="footer"] {
+  background-color: #000000 !important;
+}
+
+/* Ensure these only apply in light mode (day mode) */
+@media (prefers-color-scheme: light) {
+  nav,
+  header,
+  [class*="nav"],
+  [class*="header"],
+  [class*="menu"] {
+    background-color: #000000 !important;
+  }
+
+  footer,
+  [class*="footer"] {
+    background-color: #000000 !important;
+  }
+
+  nav a,
+  nav button,
+  header a,
+  header button,
+  [class*="nav"] a,
+  [class*="nav"] button,
+  [class*="header"] a,
+  [class*="header"] button,
+  [class*="menu"] a,
+  [class*="menu"] button,
+  footer a,
+  footer button,
+  [class*="footer"] a,
+  [class*="footer"] button {
+    font-weight: bold !important;
+    color: #ffffff !important;
+  }
+}
+
+/* Additional specificity for text color in menu/footer */
+nav,
+header,
+footer,
+[class*="nav"],
+[class*="header"],
+[class*="menu"],
+[class*="footer"] {
+  color: #ffffff !important;
+}
