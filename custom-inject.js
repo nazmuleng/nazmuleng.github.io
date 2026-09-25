@@ -31,7 +31,10 @@
   }
 
   function researchGateIcon() {
-    return '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" role="img"><circle cx="12" cy="12" r="11" fill="#000"/><text x="12" y="15" text-anchor="middle" font-size="7" font-family="Arial,Helvetica,sans-serif" font-weight="700" fill="#fff" letter-spacing="-.4">RG</text></svg>';
+    return '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" role="img" style="display:block;flex:none;">' +
+      '<circle cx="12" cy="12" r="11" fill="#000000"></circle>' +
+      '<text x="12" y="15.5" text-anchor="middle" font-size="7.2" font-family="Arial, Helvetica, sans-serif" font-weight="700" fill="#ffffff" letter-spacing="-0.3">RG</text>' +
+      '</svg>';
   }
 
   function patchResearchGateLinks() {
@@ -40,6 +43,7 @@
       var key = "researchgateAdded" + scope;
       if (scholar.dataset[key]) return;
       scholar.dataset[key] = "1";
+
       var link = document.createElement("a");
       link.href = RESEARCHGATE_URL;
       link.target = "_blank";
@@ -47,7 +51,7 @@
       link.title = "ResearchGate";
       link.setAttribute("aria-label", "ResearchGate profile");
       link.className = "researchgate-link researchgate-link-" + scope;
-      link.innerHTML = researchGateIcon() + (scope === "footer" ? "" : '<span>ResearchGate</span>');
+      link.innerHTML = researchGateIcon() + (scope === "footer" ? "" : '<span class="researchgate-label">ResearchGate</span>');
       scholar.parentNode.insertBefore(link, scholar.nextSibling);
     });
   }
@@ -60,7 +64,7 @@
       section.dataset.referencesPatched = "1";
       var list = document.createElement("div");
       list.className = "custom-references-list";
-      list.innerHTML = '<div><strong>Dr. Md. Shariful Islam</strong><br>Professor, Mechanical Engineering, KUET<br><a href="mailto:msislam@me.kuet.ac.bd">msislam@me.kuet.ac.bd</a></div><div><strong>Dr. Md. Arifuzzaman</strong><br>Professor, Mechanical Engineering, KUET<br><a href="mailto:arif48@me.kuet.ac.bd">arif48@me.kuet.ac.bd</a></div><div><strong>Dr. Md. Mahbubur Rahman</strong><br>Professor, Mechanical Engineering, KUET<br><a href="mailto:mahb.rahman@me.kuet.ac.bd">mahb.rahman@me.kuet.ac.bd</a></div><div><strong>Somnath Somadder</strong><br>Assistant Professor, Mechanical Engineering, KUET<br><a href="mailto:somnath@me.kuet.ac.bd">somnath@me.kuet.ac.bd</a></div>';
+      list.innerHTML = '<div><strong>Dr. Md. Shariful Islam</strong><br>Professor, Mechanical Engineering, KUET<br><a href="mailto:msislam@me.kuet.ac.bd">msislam@me.kuet.ac.bd</a></div><div><strong>Dr. Md. Arifuzzaman</strong><br>Professor, Mechanical Engineering, KUET<br><a href="mailto:arif48@me.kuet.ac.bd">arif48@me.kuet.ac.bd</a></div><div><strong>Dr. Md. Mahbubur Rahman</strong><br>Professor, Mechanical Engineering, KUET<br><a href="mailto:mahbub.rahman@me.kuet.ac.bd">mahbub.rahman@me.kuet.ac.bd</a></div><div><strong>Somnath Somadder</strong><br>Assistant Professor, Mechanical Engineering, KUET<br><a href="mailto:somnath@me.kuet.ac.bd">somnath@me.kuet.ac.bd</a></div>';
       while (section.lastElementChild && section.lastElementChild !== heading) section.removeChild(section.lastElementChild);
       section.appendChild(list);
     });

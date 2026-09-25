@@ -10,6 +10,8 @@ footer a[href*="maps.app.goo"] { text-decoration: none !important; }
 .researchgate-link:hover { background: transparent !important; text-decoration: underline !important; }
 .researchgate-link svg { display: block; width: 1.15rem; height: 1.15rem; flex: none; }
 .researchgate-link-footer svg { width: 1rem; height: 1rem; }
+.researchgate-link-hero { color: #000000 !important; }
+.researchgate-link-footer { color: #000000 !important; }
 .custom-references-list { display: grid; gap: 1.25rem; margin-top: 1rem; }
 .custom-references-list > div { line-height: 1.55; }
 .custom-references-list a { color: inherit; }
