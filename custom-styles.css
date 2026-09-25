@@ -1,68 +1,15 @@
 /* Existing site customizations */
 nav, header, [class*="nav"], [class*="header"] { background-color: #000000 !important; }
 nav a, nav button, nav span, header a, header button, header span { color: #ffffff !important; }
-@media (min-width: 640px) {
-  header nav { display: flex !important; }
-  header > div > div > div.xl\:hidden { display: none !important; }
-}
-@media (max-width: 639px) {
-  header > div.xl\:hidden { position: fixed !important; top: 56px !important; right: 0 !important; left: auto !important; bottom: 0 !important; width: max-content !important; min-width: 180px !important; background: #111 !important; border-left: 1px solid #333 !important; box-shadow: -4px 0 20px rgba(0,0,0,.4) !important; z-index: 49 !important; overflow-y: auto !important; animation: slideInFromRight .2s ease-out !important; }
-  header > div.xl\:hidden > div { background: transparent !important; display: flex !important; flex-direction: column !important; padding: 12px 20px !important; gap: 4px !important; }
-  header > div.xl\:hidden button { color: #fff !important; font-weight: 500 !important; text-align: left !important; padding: 10px 0 !important; border-bottom: 1px solid #2a2a2a !important; white-space: nowrap !important; font-size: 14px !important; background: transparent !important; }
-  header > div.xl\:hidden button:last-child { border-bottom: none !important; }
-  [data-testid="button-back-to-top"] { display: none !important; }
-}
+@media (min-width: 640px) { header nav { display: flex !important; } header > div > div > div.xl\:hidden { display: none !important; } }
+@media (max-width: 639px) { header > div.xl\:hidden { position: fixed !important; top: 56px !important; right: 0 !important; left: auto !important; bottom: 0 !important; width: max-content !important; min-width: 180px !important; background: #111 !important; border-left: 1px solid #333 !important; box-shadow: -4px 0 20px rgba(0,0,0,.4) !important; z-index: 49 !important; overflow-y: auto !important; animation: slideInFromRight .2s ease-out !important; } header > div.xl\:hidden > div { background: transparent !important; display: flex !important; flex-direction: column !important; padding: 12px 20px !important; gap: 4px !important; } header > div.xl\:hidden button { color: #fff !important; font-weight: 500 !important; text-align: left !important; padding: 10px 0 !important; border-bottom: 1px solid #2a2a2a !important; white-space: nowrap !important; font-size: 14px !important; background: transparent !important; } header > div.xl\:hidden button:last-child { border-bottom: none !important; } [data-testid="button-back-to-top"] { display: none !important; } }
 @keyframes slideInFromRight { from { transform: translateX(100%); } to { transform: translateX(0); } }
 footer a[href^="mailto:"], footer a[href^="tel:"] { display: none !important; }
 footer a[href*="maps.app.goo"] { text-decoration: none !important; }
-
-.researchgate-wrapper { display: inline-flex; align-items: center; justify-content: center; }
-
-.researchgate-link {
-  display: inline-flex !important;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  text-decoration: none !important;
-  color: #ffffff !important;
-  background: #000000 !important;
-  border: 1px solid #000000 !important;
-  border-radius: 999px !important;
-  padding: 0.38rem 0.7rem !important;
-  line-height: 1;
-  font-weight: 600;
-  box-shadow: none !important;
-}
-
-.researchgate-link svg {
-  display: block;
-  width: 1.6rem;
-  height: 1.6rem;
-  flex: none;
-}
-
-.researchgate-link-hero {
-  background: #000000 !important;
-  color: #ffffff !important;
-}
-
-.researchgate-link-footer {
-  background: #000000 !important;
-  border-radius: 999px !important;
-  padding: 0.25rem !important;
-  margin: 0 !important;
-}
-
-.researchgate-link-footer svg {
-  width: 1.25rem;
-  height: 1.25rem;
-}
-
-.researchgate-label {
-  font-size: 0.8rem;
-  letter-spacing: 0.01em;
-}
-
+.researchgate-link { display: inline-flex !important; align-items: center; gap: .45rem; color: inherit !important; background: transparent !important; border: 0 !important; border-radius: 0 !important; padding: 0 !important; margin: 0 !important; line-height: 1; font-weight: 400; text-decoration: none !important; box-shadow: none !important; }
+.researchgate-link:hover { background: transparent !important; text-decoration: underline !important; }
+.researchgate-link svg { display: block; width: 1.15rem; height: 1.15rem; flex: none; }
+.researchgate-link-footer svg { width: 1rem; height: 1rem; }
 .custom-references-list { display: grid; gap: 1.25rem; margin-top: 1rem; }
 .custom-references-list > div { line-height: 1.55; }
 .custom-references-list a { color: inherit; }
