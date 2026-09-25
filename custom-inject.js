@@ -40,9 +40,9 @@
   }
 
   function researchGateIcon() {
-    return '<svg viewBox="0 0 64 64" aria-hidden="true" focusable="false" style="display:block;width:1.8rem;height:1.8rem;flex:none;">' +
-      '<circle cx="32" cy="32" r="28" fill="#00CC9A" />' +
-      '<text x="32" y="39" text-anchor="middle" font-size="20" font-family="Arial, Helvetica, sans-serif" font-weight="700" fill="#ffffff" letter-spacing="-1">RG</text>' +
+    return '<svg viewBox="0 0 64 64" aria-hidden="true" focusable="false" role="img">' +
+      '<rect x="4" y="4" width="56" height="56" rx="16" fill="#000000" />' +
+      '<text x="32" y="40" text-anchor="middle" font-size="24" font-family="Arial, Helvetica, sans-serif" font-weight="700" fill="#ffffff" letter-spacing="-1">RG</text>' +
       '</svg>';
   }
 
@@ -55,7 +55,13 @@
     link.title = "ResearchGate";
     link.dataset.researchgateLink = "1";
     link.className = "researchgate-link" + (scope === "footer" ? " researchgate-link-footer" : " researchgate-link-hero");
-    link.innerHTML = researchGateIcon();
+
+    if (scope === "footer") {
+      link.innerHTML = researchGateIcon();
+    } else {
+      link.innerHTML = researchGateIcon() + '<span class="researchgate-label">ResearchGate</span>';
+    }
+
     return link;
   }
 
@@ -69,13 +75,15 @@
       scholar.dataset[key] = "1";
 
       var rg = makeResearchGateLink(scope);
-      var wrapper = scholar.parentElement;
-      if (wrapper && wrapper.children.length <= 3) {
-        var rgWrapper = wrapper.cloneNode(false);
+      var parent = scholar.parentElement;
+
+      if (scope === "footer") {
+        scholar.parentNode.insertBefore(rg, scholar.nextSibling);
+      } else if (parent && parent.children.length <= 3) {
+        var rgWrapper = document.createElement("div");
         rgWrapper.className = "researchgate-wrapper";
-        rgWrapper.innerHTML = "";
         rgWrapper.appendChild(rg);
-        wrapper.parentNode.insertBefore(rgWrapper, wrapper.nextSibling);
+        parent.parentNode.insertBefore(rgWrapper, parent.nextSibling);
       } else {
         scholar.parentNode.insertBefore(rg, scholar.nextSibling);
       }
