@@ -6,12 +6,52 @@ nav a, nav button, nav span, header a, header button, header span { color: #ffff
 @keyframes slideInFromRight { from { transform: translateX(100%); } to { transform: translateX(0); } }
 footer a[href^="mailto:"], footer a[href^="tel:"] { display: none !important; }
 footer a[href*="maps.app.goo"] { text-decoration: none !important; }
-.researchgate-link { display: inline-flex !important; align-items: center; gap: .45rem; color: inherit !important; background: transparent !important; border: 0 !important; border-radius: 0 !important; padding: 0 !important; margin: 0 !important; line-height: 1; font-weight: 400; text-decoration: none !important; box-shadow: none !important; }
-.researchgate-link:hover { background: transparent !important; text-decoration: underline !important; }
-.researchgate-link svg { display: block; width: 1.15rem; height: 1.15rem; flex: none; }
-.researchgate-link-footer svg { width: 1rem; height: 1rem; }
-.researchgate-link-hero { color: #000000 !important; }
-.researchgate-link-footer { color: #000000 !important; }
+
+.researchgate-link {
+  display: inline-flex !important;
+  align-items: center;
+  gap: .5rem;
+  color: inherit !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  line-height: 1;
+  text-decoration: none !important;
+  box-shadow: none !important;
+  font-weight: 400;
+}
+
+.researchgate-link:hover {
+  background: transparent !important;
+  text-decoration: underline !important;
+}
+
+.researchgate-link svg {
+  display: block;
+  width: 1.15rem;
+  height: 1.15rem;
+  flex: none;
+}
+
+.researchgate-link-footer svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.researchgate-link-hero,
+.researchgate-link-footer,
+.researchgate-link-hero .researchgate-label,
+.researchgate-link-footer .researchgate-label {
+  color: inherit !important;
+}
+
+.researchgate-label {
+  font-size: inherit;
+  line-height: 1;
+}
+
 .custom-references-list { display: grid; gap: 1.25rem; margin-top: 1rem; }
 .custom-references-list > div { line-height: 1.55; }
 .custom-references-list a { color: inherit; }
