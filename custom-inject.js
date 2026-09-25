@@ -40,10 +40,13 @@
   }
 
   function researchGateIcon() {
-    return '<span aria-hidden="true" style="display:inline-flex;align-items:center;justify-content:center;width:1.35em;height:1.35em;border:2px solid currentColor;border-radius:3px;font-family:Arial,sans-serif;font-size:.72em;font-weight:700;line-height:1;flex:none">RG</span>';
+    return '<svg viewBox="0 0 64 64" aria-hidden="true" focusable="false" style="display:block;width:1.8rem;height:1.8rem;flex:none;">' +
+      '<circle cx="32" cy="32" r="28" fill="#00CC9A" />' +
+      '<text x="32" y="39" text-anchor="middle" font-size="20" font-family="Arial, Helvetica, sans-serif" font-weight="700" fill="#ffffff" letter-spacing="-1">RG</text>' +
+      '</svg>';
   }
 
-  function makeResearchGateLink(reference) {
+  function makeResearchGateLink(scope) {
     var link = document.createElement("a");
     link.href = RESEARCHGATE_URL;
     link.target = "_blank";
@@ -51,9 +54,8 @@
     link.setAttribute("aria-label", "ResearchGate profile");
     link.title = "ResearchGate";
     link.dataset.researchgateLink = "1";
-    link.style.cssText = "display:inline-flex;align-items:center;gap:.45em;color:inherit;text-decoration:none;";
-    link.innerHTML = researchGateIcon() + '<span class="researchgate-label">ResearchGate</span>';
-    if (reference && reference.className) link.className = reference.className;
+    link.className = "researchgate-link" + (scope === "footer" ? " researchgate-link-footer" : " researchgate-link-hero");
+    link.innerHTML = researchGateIcon();
     return link;
   }
 
@@ -65,11 +67,12 @@
       var key = "researchgateAdded" + scope;
       if (scholar.dataset[key]) continue;
       scholar.dataset[key] = "1";
-      var rg = makeResearchGateLink(scholar);
+
+      var rg = makeResearchGateLink(scope);
       var wrapper = scholar.parentElement;
       if (wrapper && wrapper.children.length <= 3) {
         var rgWrapper = wrapper.cloneNode(false);
-        rgWrapper.dataset.researchgateWrapper = scope;
+        rgWrapper.className = "researchgate-wrapper";
         rgWrapper.innerHTML = "";
         rgWrapper.appendChild(rg);
         wrapper.parentNode.insertBefore(rgWrapper, wrapper.nextSibling);
